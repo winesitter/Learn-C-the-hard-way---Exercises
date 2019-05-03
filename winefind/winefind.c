@@ -1,12 +1,10 @@
-#include "dbg.h"
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <glob.h>
 
 #define BUFFLEN 1024
-#define LOGFIND "/home/flo/Code/01_C/01_LearnCtheHardWay/Exercises/winefind/logfind"
+#define LOGFIND "~/.logfind"
 
 /*-------------- Colors for printf() function --------------*/
 #define ANSI_COLOR_RED     "\x1b[31m"
