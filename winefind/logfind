@@ -1,0 +1,15 @@
+*.txt
+*.c
+*.h
+*.py
+*.ipynb
+*.js
+*.tex
+*.pdf
+*.log
+*.out
+*.csv
+*.json
+*.html
+*.pptx
+*.dat
