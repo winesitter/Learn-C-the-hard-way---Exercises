@@ -8,7 +8,7 @@ However, it was fun to write it.
 ## Usage
 `> winefind "your-query"`
 
-It goes only through files, whose type is specified within ".logfile", which must 
+It goes only through files, whose type is specified within ".winefind_logs", which must 
 be located in your home directory.
 
 
