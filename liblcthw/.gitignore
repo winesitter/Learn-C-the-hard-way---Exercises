@@ -1,0 +1,5 @@
+src/*.o
+src/**/*.o
+tests/*.o
+build
+bin/*
