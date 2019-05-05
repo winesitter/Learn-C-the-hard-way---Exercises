@@ -1,13 +1,20 @@
 #include <stdlib.h>
-
 #include <lcthw/list.h>
 #include <lcthw/dbg.h>
 
+
+/***************************************************************
+* This function creates a new list structure
+***************************************************************/
 List *List_create()
 {
   return calloc(1, sizeof(List));
 }
 
+/***************************************************************
+* This function frees the memory of all ListNodes of a given 
+* list structure
+***************************************************************/
 void List_destroy(List *list)
 {
   LIST_FOREACH(list, first, next, cur) {
@@ -19,6 +26,10 @@ void List_destroy(List *list)
   free(list);
 }
 
+/***************************************************************
+* This function frees all memory of the data that is stored 
+* in a given list structure
+***************************************************************/
 void List_clear(List *list)
 {
   LIST_FOREACH(list, first, next, cur) {
@@ -26,12 +37,18 @@ void List_clear(List *list)
   }
 }
 
+/***************************************************************
+* This function frees all memory of a list structure
+***************************************************************/
 void List_clear_destroy(List *list) 
 {
   List_clear(list);
   List_destroy(list);
 }
 
+/***************************************************************
+* Push a new list node to the end of a list structure
+***************************************************************/
 void List_push(List *list, void *value)
 {
   ListNode *node = calloc(1, sizeof(ListNode));
@@ -55,12 +72,18 @@ error:
   return;
 }
 
+/***************************************************************
+* Remove the last node from a list structure
+***************************************************************/
 void *List_pop(List *list)
 {
   ListNode *node = list->last;
   return node != NULL ? List_remove(list, node) : NULL;
 }
 
+/***************************************************************
+* Push a new list node to the beginning of a list structure
+***************************************************************/
 void List_unshift(List *list, void *value)
 {
   ListNode *node = calloc(1, sizeof(ListNode));
@@ -84,12 +107,18 @@ error:
   return;
 }
 
+/***************************************************************
+* Remove the first node from a list structure
+***************************************************************/
 void *List_shift(List *list)
 {
   ListNode *node = list->first;
   return node != NULL ? List_remove(list, node) : NULL;
 }
 
+/***************************************************************
+* Remove a specific node from a list structure
+***************************************************************/
 void *List_remove(List *list, ListNode *node)
 {
   void *result = NULL;
@@ -127,6 +156,31 @@ error:
   return result;
 }
 
+/***************************************************************
+* Appends <list2> to the end of <list1>
+***************************************************************/
+void *List_join(List *list1, List *list2)
+{
+  check(list1->first || list2->first, "Both lists are empty.");
+
+  if (list1->first == NULL) {
+    list1->first = list2->first;
+    list1->count = list2->count;
+  }
+  else {
+    list1->last->next = list2->first;
+    list2->first->prev = list1->last;
+    list1->last = list2->last;
+    list1->count += list2->count;
+
+    list2->count = 0;
+    list2->first = NULL;
+    list2->last  = NULL;
+  }
+
+error:
+  return NULL;
+}
 
 
 

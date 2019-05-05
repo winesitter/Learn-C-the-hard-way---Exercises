@@ -1,27 +1,53 @@
-DEBUG: tests/list_tests.c:106: ----- RUNNING: ./tests/list_tests
-DEBUG: tests/list_tests.c:96: 
------ test_create
-DEBUG: tests/list_tests.c:97: 
------ test_push_pop
-DEBUG: tests/list_tests.c:98: 
------ test_unshift
-DEBUG: tests/list_tests.c:99: 
------ test_remove
-DEBUG: tests/list_tests.c:100: 
------ test_shift
-DEBUG: tests/list_tests.c:101: 
------ test_destroy
-DEBUG: tests/list_tests.c:106: ----- RUNNING: ./tests/list_tests
-
-DEBUG: tests/list_tests.c:96: 
------ test_create
-DEBUG: tests/list_tests.c:97: 
------ test_push_pop
-DEBUG: tests/list_tests.c:98: 
------ test_unshift
-DEBUG: tests/list_tests.c:99: 
------ test_remove
-DEBUG: tests/list_tests.c:100: 
------ test_shift
-DEBUG: tests/list_tests.c:101: 
------ test_destroy
+DEBUG: tests/unit_tests.c:33: ----- RUNNING: ./tests/unit_tests
+DEBUG: tests/unit_tests.c:17: 
+----- test_list_create
+DEBUG: tests/unit_tests.c:18: 
+----- test_list_push_pop
+DEBUG: tests/unit_tests.c:19: 
+----- test_list_unshift
+DEBUG: tests/unit_tests.c:20: 
+----- test_list_remove
+DEBUG: tests/unit_tests.c:21: 
+----- test_list_shift
+DEBUG: tests/unit_tests.c:22: 
+----- test_list_join
+DEBUG: tests/unit_tests.c:23: 
+----- test_list_destroy
+DEBUG: tests/unit_tests.c:28: 
+----- test_list_algos_bubble_sort
+DEBUG: tests/unit_tests.c:33: ----- RUNNING: ./tests/unit_tests
+DEBUG: tests/unit_tests.c:17: 
+----- test_list_create
+DEBUG: tests/unit_tests.c:18: 
+----- test_list_push_pop
+DEBUG: tests/unit_tests.c:19: 
+----- test_list_unshift
+DEBUG: tests/unit_tests.c:20: 
+----- test_list_remove
+DEBUG: tests/unit_tests.c:21: 
+----- test_list_shift
+DEBUG: tests/unit_tests.c:22: 
+----- test_list_join
+DEBUG: tests/unit_tests.c:23: 
+----- test_list_destroy
+DEBUG: tests/unit_tests.c:28: 
+----- test_list_algos_bubble_sort
+DEBUG: tests/unit_tests.c:33: ----- RUNNING: ./tests/unit_tests
+DEBUG: tests/unit_tests.c:17: 
+----- test_list_create
+DEBUG: tests/unit_tests.c:18: 
+----- test_list_push_pop
+DEBUG: tests/unit_tests.c:19: 
+----- test_list_unshift
+DEBUG: tests/unit_tests.c:20: 
+----- test_list_remove
+DEBUG: tests/unit_tests.c:21: 
+----- test_list_shift
+DEBUG: tests/unit_tests.c:22: 
+----- test_list_join
+DEBUG: tests/unit_tests.c:23: 
+----- test_list_destroy
+DEBUG: tests/unit_tests.c:28: 
+----- test_list_algos_bubble_sort
+DEBUG: tests/list_algos_tests.c:33: XXXX 1234
+[ERROR] (tests/list_algos_tests.c:49: errno: None) Words are not sorted after bubble sort.

@@ -1,29 +1,33 @@
 #include "minunit.h"
 #include <lcthw/list.h>
 #include <assert.h>
+#include "list_tests.h"
 
-
-static List *list = NULL;
+/***************************************************************
+* Definition of unit test variables 
+***************************************************************/
+static List *list    = NULL;
+static List *list_jn = NULL;
 char *test1= "test1 data";
 char *test2= "test2 data";
 char *test3= "test3 data";
+char *test4= "test4 data";
 
-char *test_create()
+/***************************************************************
+* Definition of unit test functions 
+***************************************************************/
+char *test_list_create()
 {
   list = List_create();
   mu_assert(list != NULL, "Failed to create list.");
 
-  return NULL;
-}
-
-char *test_destroy()
-{
-  List_clear_destroy(list);
+  list_jn = List_create();
+  mu_assert(list_jn != NULL, "Failed to create list.");
 
   return NULL;
 }
 
-char *test_push_pop()
+char *test_list_push_pop()
 {
   List_push(list, test1);
   mu_assert(List_last(list) == test1, "Wrong last value.");
@@ -48,7 +52,7 @@ char *test_push_pop()
   return NULL;
 }
 
-char *test_unshift()
+char *test_list_unshift()
 {
   List_unshift(list, test1);
   mu_assert(List_first(list) == test1, "Wrong first value.");
@@ -63,7 +67,7 @@ char *test_unshift()
   return NULL;
 }
 
-char *test_remove()
+char *test_list_remove()
 {
   char *val = List_remove(list, list->first->next);
   mu_assert(val == test2, "Wrong removed element.");
@@ -74,7 +78,7 @@ char *test_remove()
   return NULL;
 }
 
-char *test_shift()
+char *test_list_shift()
 {
   mu_assert(List_count(list) != 0, "Wrong count before shift.");
 
@@ -88,19 +92,49 @@ char *test_shift()
   return NULL;
 }
 
-
-char *all_tests()
+char *test_list_destroy()
 {
-  mu_suite_start();
+  List_clear_destroy(list);
+  List_clear_destroy(list_jn);
 
-  mu_run_test(test_create);
-  mu_run_test(test_push_pop);
-  mu_run_test(test_unshift);
-  mu_run_test(test_remove);
-  mu_run_test(test_shift);
-  mu_run_test(test_destroy);
-  
   return NULL;
 }
 
-RUN_TESTS(all_tests);
+
+char *test_list_join()
+{
+  List_push(list, test1);
+  mu_assert(List_last(list) == test1, "Wrong last value.");
+
+  List_push(list, test2);
+  mu_assert(List_last(list) == test2, "Wrong last value.");
+
+  List_push(list_jn, test3);
+  mu_assert(List_last(list_jn) == test3, "Wrong last value.");
+
+  List_push(list_jn, test4);
+  mu_assert(List_last(list_jn) == test4, "Wrong last value.");
+
+  List_join(list, list_jn);
+  mu_assert(List_count(list) == 4, "Wrong join count.");
+  mu_assert(List_first(list) == test1, "Wrong join first value.");
+  mu_assert(list->first->next->next->value == test3, "Wrong join first value.");
+  mu_assert(List_last(list) == test4, "Wrong join first value.");
+
+  char *val;
+  val = List_pop(list);
+  mu_assert(val == test4, "Wrong value on pop.");
+
+  val = List_pop(list);
+  mu_assert(val == test3, "Wrong value on pop.");
+
+  val = List_pop(list);
+  mu_assert(val == test2, "Wrong value on pop.");
+
+  val = List_pop(list);
+  mu_assert(val == test1, "Wrong value on pop.");
+
+  return NULL;
+
+}
+
