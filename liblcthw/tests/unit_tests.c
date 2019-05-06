@@ -33,6 +33,11 @@ char *all_tests()
   * Unit tests for dynamic arrays
   *************************************************************/
   mu_run_test(test_darray_create);
+  mu_run_test(test_darray_destroy);
+  mu_run_test(test_darray_new);
+  mu_run_test(test_darray_set);
+  mu_run_test(test_darray_get);
+  mu_run_test(test_darray_remove);
   
 
   return NULL;

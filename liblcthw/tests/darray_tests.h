@@ -2,5 +2,10 @@
 #define darray_tests_h
 
 char *test_darray_create();
+char *test_darray_destroy();
+char *test_darray_new();
+char *test_darray_set();
+char *test_darray_get();
+char *test_darray_remove();
 
 #endif

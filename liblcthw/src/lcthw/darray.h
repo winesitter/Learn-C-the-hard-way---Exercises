@@ -21,9 +21,20 @@ typedef struct DArray {
 ***************************************************************/
 DArray *DArray_create(size_t element_size, size_t initial_max);
 
+/***************************************************************
+* Function frees content pointer array and DArray struct memory
+***************************************************************/
 void DArray_destroy(DArray *array);
 
+/***************************************************************
+* Function frees memory for every content entry of DArray
+***************************************************************/
 void DArray_clear(DArray *array);
+
+/***************************************************************
+* Function to fully clear a DArray memory
+***************************************************************/
+void DArray_clear_destroy(DArray *array);
 
 int DArray_expand(DArray *array);
 
@@ -33,8 +44,6 @@ int DArray_push(DArray *array, void *el);
 
 void *DArray_pop(DArray *array);
 
-void DArray_clear_destroy(DArray *array);
-
 #define DArray_last(A) ((A)->contents[(A)->end - 1])
 #define DArray_first(A) ((A)->contents[0])
 #define DArray_end(A) ((A)->end)
@@ -43,6 +52,9 @@ void DArray_clear_destroy(DArray *array);
 
 #define DEFAULT_EXPAND_RATE 300
 
+/***************************************************************
+* Set an element <el> into the DArray at position <i>
+***************************************************************/
 static inline void DArray_set(DArray *array, int i, void *el)
 {
   check(i < array->max, "darray attempt to set past max.");
@@ -53,6 +65,9 @@ error:
   return;
 }
 
+/***************************************************************
+* Get an element <el> from the DArray at position <i>
+***************************************************************/
 static inline void *DArray_get(DArray *array, int i)
 {
   check(i < array->max, "darray attempt to get past max");
@@ -70,6 +85,10 @@ static inline void *DArray_remove(DArray *array, int i)
   return el;
 }
 
+/***************************************************************
+* Create a new element that has the same type as all other
+* elements which are stored in the DArray contents
+***************************************************************/
 static inline void *DArray_new(DArray *array)
 {
   check(array->element_size > 0, 

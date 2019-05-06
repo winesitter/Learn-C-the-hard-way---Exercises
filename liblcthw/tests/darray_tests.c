@@ -28,3 +28,57 @@ char *test_darray_create()
 
   return NULL;
 }
+
+char *test_darray_destroy()
+{
+  DArray_destroy(array);
+
+  return NULL;
+}
+
+char *test_darray_new()
+{
+  val1 = DArray_new(array);
+  mu_assert(val1 != NULL, "failed to make a new element.");
+
+  val2 = DArray_new(array);
+  mu_assert(val2 != NULL, "failed to make a new element.");
+
+  return NULL;
+}
+
+char *test_darray_set()
+{
+  DArray_set(array, 0, val1);
+  DArray_set(array, 1, val2);
+
+  return NULL;
+}
+
+char *test_darray_get()
+{
+  mu_assert(DArray_get(array, 0) == val1, 
+      "Wrong first value.");
+  mu_assert(DArray_get(array, 1) == val2, 
+      "Wrong first value.");
+
+  return NULL;
+}
+
+char *test_darray_remove()
+{
+  int *val_check =  DArray_remove(array, 0);
+  mu_assert(val_check != NULL, "Should not get NULL.");
+  mu_assert(*val_check == *val1, "Should get the first value.");
+  mu_assert(DArray_get(array, 0) == NULL, "Should be gone.");
+  DArray_free(val_check);
+
+  val_check =  DArray_remove(array, 1);
+  mu_assert(val_check != NULL, "Should not get NULL.");
+  mu_assert(*val_check == *val2, "Should get the first value.");
+  mu_assert(DArray_get(array, 1) == NULL, "Should be gone.");
+  DArray_free(val_check);
+
+  return NULL;
+
+}
