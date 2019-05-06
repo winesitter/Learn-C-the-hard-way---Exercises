@@ -67,3 +67,37 @@ char *test_list_algos_bubble_sort()
 
   return NULL;
 }
+
+char *test_list_algos_merge_sort()
+{
+  List *words = test_list_algos_create_words();
+
+  // should work on a list that needs sorting
+  List *words_sort;
+  words_sort = List_merge_sort(words, (List_compare) strcmp);
+  mu_assert(words_sort, "Merge sort failed.");
+  mu_assert(test_list_algos_is_sorted(words_sort),
+      "Words are not sorted after merge sort.");
+  List_destroy(words_sort);
+
+  // should work on a already sorted list
+  words_sort = List_merge_sort(words, (List_compare) strcmp);
+  mu_assert(words_sort, "Merge sort of already sorted failed.");
+  mu_assert(test_list_algos_is_sorted(words_sort),
+      "Words should be sorted of already sorted list.");
+  List_destroy(words_sort);
+  List_destroy(words);
+
+  // should work on an empty list
+  words = List_create(words);
+  words_sort = List_merge_sort(words, (List_compare) strcmp);
+  mu_assert(words_sort, "Merge sort of empty list failed.");
+  mu_assert(words == words_sort, "Merge sort should return empty input list.");
+  mu_assert(test_list_algos_is_sorted(words_sort),
+      "Words should be sorted of empty list.");
+
+  List_destroy(words);
+
+
+  return NULL;
+}

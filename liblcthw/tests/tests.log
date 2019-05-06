@@ -1,8 +1,106 @@
-DEBUG: tests/unit_tests.c:33: ----- RUNNING: ./tests/unit_tests
+==4491== Memcheck, a memory error detector
+==4491== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4491== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==4491== Command: ./tests/unit_tests
+==4491== 
+--4491-- Valgrind options:
+--4491--    -v
+--4491--    --leak-check=full
+--4491-- Contents of /proc/version:
+--4491--   Linux version 4.15.0-36-generic (buildd@lgw01-amd64-031) (gcc version 7.3.0 (Ubuntu 7.3.0-16ubuntu3)) #39-Ubuntu SMP Mon Sep 24 16:19:09 UTC 2018
+--4491-- 
+--4491-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3
+--4491-- Page sizes: currently 4096, max supported 4096
+--4491-- Valgrind library directory: /usr/lib/valgrind
+--4491-- Reading syms from /home/flo/Code/01_C/01_LearnCtheHardWay/Learn-C-the-hard-way---Exercises/liblcthw/tests/unit_tests
+--4491-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--4491--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--4491--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--4491--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--4491--   .. CRC is valid
+--4491-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--4491--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--4491--   .. CRC mismatch (computed c25f395c wanted 0a9602a8)
+--4491--    object doesn't have a symbol table
+--4491--    object doesn't have a dynamic symbol table
+--4491-- Scheduler: using generic scheduler lock implementation.
+--4491-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==4491== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-4491-by-flo-on-???
+==4491== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-4491-by-flo-on-???
+==4491== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-4491-by-flo-on-???
+==4491== 
+==4491== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==4491== don't want to do, unless you know exactly what you're doing,
+==4491== or are doing some strange experiment):
+==4491==   /usr/lib/valgrind/../../bin/vgdb --pid=4491 ...command...
+==4491== 
+==4491== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==4491==   /path/to/gdb ./tests/unit_tests
+==4491== and then give GDB the following command
+==4491==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=4491
+==4491== --pid is optional if only one valgrind process is running
+==4491== 
+--4491-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (???)
+--4491-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (???)
+--4491-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--4491--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--4491--   .. CRC mismatch (computed 4b63d83e wanted 670599e6)
+--4491--    object doesn't have a symbol table
+--4491-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--4491--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--4491--   .. CRC mismatch (computed a4b37bee wanted 8ad4dc94)
+--4491--    object doesn't have a symbol table
+==4491== WARNING: new redirection conflicts with existing -- ignoring it
+--4491--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x58060901 ???
+--4491--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--4491-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--4491-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--4491-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--4491--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--4491--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--4491--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--4491--   .. CRC is valid
+--4491-- REDIR: 0x4edac70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ed9d40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edaf50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ed9790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ed9d70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edc7c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edade0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edac10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ed9d00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ed9800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edad40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ef80f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ed9ca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ed9870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edafa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ed9840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edb0e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ed9da0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ed97c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ed9c70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ee46c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edaff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edabe0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4ef8eb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4eda050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edaf20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edaef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edc7f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4edb040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4491-- REDIR: 0x4eed330 (libc.so.6:__strrchr_sse2) redirected to 0x4c32790 (__strrchr_sse2)
+--4491-- REDIR: 0x4eed120 (libc.so.6:__strchrnul_sse2) redirected to 0x4c37020 (strchrnul)
+--4491-- REDIR: 0x4eed620 (libc.so.6:__strlen_sse2) redirected to 0x4c32d30 (__strlen_sse2)
+DEBUG: tests/unit_tests.c:34: ----- RUNNING: ./tests/unit_tests
+--4491-- REDIR: 0x4ed3070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--4491-- REDIR: 0x4ef7440 (libc.so.6:__mempcpy_sse2_unaligned) redirected to 0x4c37130 (mempcpy)
 DEBUG: tests/unit_tests.c:17: 
 ----- test_list_create
+--4491-- REDIR: 0x4ed6030 (libc.so.6:calloc) redirected to 0x4c31a70 (calloc)
 DEBUG: tests/unit_tests.c:18: 
 ----- test_list_push_pop
+--4491-- REDIR: 0x4ed3950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
 DEBUG: tests/unit_tests.c:19: 
 ----- test_list_unshift
 DEBUG: tests/unit_tests.c:20: 
@@ -15,11 +113,121 @@ DEBUG: tests/unit_tests.c:23:
 ----- test_list_destroy
 DEBUG: tests/unit_tests.c:28: 
 ----- test_list_algos_bubble_sort
-DEBUG: tests/unit_tests.c:33: ----- RUNNING: ./tests/unit_tests
+--4491-- REDIR: 0x4ee5e70 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x4c33da0 (strcmp)
+DEBUG: tests/unit_tests.c:29: 
+----- test_list_algos_merge_sort
+==4491== 
+==4491== HEAP SUMMARY:
+==4491==     in use at exit: 0 bytes in 0 blocks
+==4491==   total heap usage: 98 allocs, 98 frees, 3,352 bytes allocated
+==4491== 
+==4491== All heap blocks were freed -- no leaks are possible
+==4491== 
+==4491== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4491== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4536== Memcheck, a memory error detector
+==4536== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4536== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==4536== Command: ./tests/unit_tests
+==4536== 
+--4536-- Valgrind options:
+--4536--    -v
+--4536--    --leak-check=full
+--4536-- Contents of /proc/version:
+--4536--   Linux version 4.15.0-36-generic (buildd@lgw01-amd64-031) (gcc version 7.3.0 (Ubuntu 7.3.0-16ubuntu3)) #39-Ubuntu SMP Mon Sep 24 16:19:09 UTC 2018
+--4536-- 
+--4536-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3
+--4536-- Page sizes: currently 4096, max supported 4096
+--4536-- Valgrind library directory: /usr/lib/valgrind
+--4536-- Reading syms from /home/flo/Code/01_C/01_LearnCtheHardWay/Learn-C-the-hard-way---Exercises/liblcthw/tests/unit_tests
+--4536-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--4536--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--4536--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--4536--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--4536--   .. CRC is valid
+--4536-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--4536--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--4536--   .. CRC mismatch (computed c25f395c wanted 0a9602a8)
+--4536--    object doesn't have a symbol table
+--4536--    object doesn't have a dynamic symbol table
+--4536-- Scheduler: using generic scheduler lock implementation.
+--4536-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==4536== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-4536-by-flo-on-???
+==4536== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-4536-by-flo-on-???
+==4536== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-4536-by-flo-on-???
+==4536== 
+==4536== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==4536== don't want to do, unless you know exactly what you're doing,
+==4536== or are doing some strange experiment):
+==4536==   /usr/lib/valgrind/../../bin/vgdb --pid=4536 ...command...
+==4536== 
+==4536== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==4536==   /path/to/gdb ./tests/unit_tests
+==4536== and then give GDB the following command
+==4536==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=4536
+==4536== --pid is optional if only one valgrind process is running
+==4536== 
+--4536-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (???)
+--4536-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (???)
+--4536-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--4536--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--4536--   .. CRC mismatch (computed 4b63d83e wanted 670599e6)
+--4536--    object doesn't have a symbol table
+--4536-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--4536--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--4536--   .. CRC mismatch (computed a4b37bee wanted 8ad4dc94)
+--4536--    object doesn't have a symbol table
+==4536== WARNING: new redirection conflicts with existing -- ignoring it
+--4536--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x58060901 ???
+--4536--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--4536-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--4536-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--4536-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--4536--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--4536--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--4536--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--4536--   .. CRC is valid
+--4536-- REDIR: 0x4edac70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ed9d40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edaf50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ed9790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ed9d70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edc7c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edade0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edac10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ed9d00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ed9800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edad40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ef80f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ed9ca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ed9870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edafa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ed9840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edb0e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ed9da0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ed97c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ed9c70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ee46c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edaff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edabe0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4ef8eb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4eda050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edaf20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edaef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edc7f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4edb040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4536-- REDIR: 0x4eed330 (libc.so.6:__strrchr_sse2) redirected to 0x4c32790 (__strrchr_sse2)
+--4536-- REDIR: 0x4eed120 (libc.so.6:__strchrnul_sse2) redirected to 0x4c37020 (strchrnul)
+--4536-- REDIR: 0x4eed620 (libc.so.6:__strlen_sse2) redirected to 0x4c32d30 (__strlen_sse2)
+DEBUG: tests/unit_tests.c:34: ----- RUNNING: ./tests/unit_tests
+--4536-- REDIR: 0x4ed3070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--4536-- REDIR: 0x4ef7440 (libc.so.6:__mempcpy_sse2_unaligned) redirected to 0x4c37130 (mempcpy)
 DEBUG: tests/unit_tests.c:17: 
 ----- test_list_create
+--4536-- REDIR: 0x4ed6030 (libc.so.6:calloc) redirected to 0x4c31a70 (calloc)
 DEBUG: tests/unit_tests.c:18: 
 ----- test_list_push_pop
+--4536-- REDIR: 0x4ed3950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
 DEBUG: tests/unit_tests.c:19: 
 ----- test_list_unshift
 DEBUG: tests/unit_tests.c:20: 
@@ -32,11 +240,223 @@ DEBUG: tests/unit_tests.c:23:
 ----- test_list_destroy
 DEBUG: tests/unit_tests.c:28: 
 ----- test_list_algos_bubble_sort
-DEBUG: tests/unit_tests.c:33: ----- RUNNING: ./tests/unit_tests
+--4536-- REDIR: 0x4ee5e70 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x4c33da0 (strcmp)
+DEBUG: tests/unit_tests.c:29: 
+----- test_list_algos_merge_sort
+==4536== Invalid read of size 8
+==4536==    at 0x10A6F9: List_destroy (list.c:20)
+==4536==    by 0x109834: test_list_algos_merge_sort (list_algos_tests.c:99)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536==  Address 0x522f8e8 is 8 bytes inside a block of size 24 free'd
+==4536==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x10982C: test_list_algos_merge_sort (list_algos_tests.c:98)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536==  Block was alloc'd at
+==4536==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x109759: test_list_algos_merge_sort (list_algos_tests.c:92)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536== 
+==4536== Invalid read of size 8
+==4536==    at 0x10A71E: List_destroy (list.c:25)
+==4536==    by 0x109834: test_list_algos_merge_sort (list_algos_tests.c:99)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536==  Address 0x522f8f0 is 16 bytes inside a block of size 24 free'd
+==4536==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x10982C: test_list_algos_merge_sort (list_algos_tests.c:98)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536==  Block was alloc'd at
+==4536==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x109759: test_list_algos_merge_sort (list_algos_tests.c:92)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536== 
+==4536== Invalid free() / delete / delete[] / realloc()
+==4536==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x109834: test_list_algos_merge_sort (list_algos_tests.c:99)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536==  Address 0x522f8e0 is 0 bytes inside a block of size 24 free'd
+==4536==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x10982C: test_list_algos_merge_sort (list_algos_tests.c:98)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536==  Block was alloc'd at
+==4536==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x109759: test_list_algos_merge_sort (list_algos_tests.c:92)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536== 
+==4536== 
+==4536== HEAP SUMMARY:
+==4536==     in use at exit: 0 bytes in 0 blocks
+==4536==   total heap usage: 99 allocs, 100 frees, 3,376 bytes allocated
+==4536== 
+==4536== All heap blocks were freed -- no leaks are possible
+==4536== 
+==4536== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+==4536== 
+==4536== 1 errors in context 1 of 3:
+==4536== Invalid free() / delete / delete[] / realloc()
+==4536==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x109834: test_list_algos_merge_sort (list_algos_tests.c:99)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536==  Address 0x522f8e0 is 0 bytes inside a block of size 24 free'd
+==4536==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x10982C: test_list_algos_merge_sort (list_algos_tests.c:98)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536==  Block was alloc'd at
+==4536==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x109759: test_list_algos_merge_sort (list_algos_tests.c:92)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536== 
+==4536== 
+==4536== 1 errors in context 2 of 3:
+==4536== Invalid read of size 8
+==4536==    at 0x10A71E: List_destroy (list.c:25)
+==4536==    by 0x109834: test_list_algos_merge_sort (list_algos_tests.c:99)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536==  Address 0x522f8f0 is 16 bytes inside a block of size 24 free'd
+==4536==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x10982C: test_list_algos_merge_sort (list_algos_tests.c:98)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536==  Block was alloc'd at
+==4536==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x109759: test_list_algos_merge_sort (list_algos_tests.c:92)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536== 
+==4536== 
+==4536== 1 errors in context 3 of 3:
+==4536== Invalid read of size 8
+==4536==    at 0x10A6F9: List_destroy (list.c:20)
+==4536==    by 0x109834: test_list_algos_merge_sort (list_algos_tests.c:99)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536==  Address 0x522f8e8 is 8 bytes inside a block of size 24 free'd
+==4536==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x10982C: test_list_algos_merge_sort (list_algos_tests.c:98)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536==  Block was alloc'd at
+==4536==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4536==    by 0x109759: test_list_algos_merge_sort (list_algos_tests.c:92)
+==4536==    by 0x109A93: all_tests (unit_tests.c:29)
+==4536==    by 0x1090CA: main (unit_tests.c:34)
+==4536== 
+==4536== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+==4555== Memcheck, a memory error detector
+==4555== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4555== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==4555== Command: ./tests/unit_tests
+==4555== 
+--4555-- Valgrind options:
+--4555--    -v
+--4555--    --leak-check=full
+--4555-- Contents of /proc/version:
+--4555--   Linux version 4.15.0-36-generic (buildd@lgw01-amd64-031) (gcc version 7.3.0 (Ubuntu 7.3.0-16ubuntu3)) #39-Ubuntu SMP Mon Sep 24 16:19:09 UTC 2018
+--4555-- 
+--4555-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3
+--4555-- Page sizes: currently 4096, max supported 4096
+--4555-- Valgrind library directory: /usr/lib/valgrind
+--4555-- Reading syms from /home/flo/Code/01_C/01_LearnCtheHardWay/Learn-C-the-hard-way---Exercises/liblcthw/tests/unit_tests
+--4555-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--4555--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--4555--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--4555--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--4555--   .. CRC is valid
+--4555-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--4555--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--4555--   .. CRC mismatch (computed c25f395c wanted 0a9602a8)
+--4555--    object doesn't have a symbol table
+--4555--    object doesn't have a dynamic symbol table
+--4555-- Scheduler: using generic scheduler lock implementation.
+--4555-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==4555== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-4555-by-flo-on-???
+==4555== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-4555-by-flo-on-???
+==4555== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-4555-by-flo-on-???
+==4555== 
+==4555== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==4555== don't want to do, unless you know exactly what you're doing,
+==4555== or are doing some strange experiment):
+==4555==   /usr/lib/valgrind/../../bin/vgdb --pid=4555 ...command...
+==4555== 
+==4555== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==4555==   /path/to/gdb ./tests/unit_tests
+==4555== and then give GDB the following command
+==4555==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=4555
+==4555== --pid is optional if only one valgrind process is running
+==4555== 
+--4555-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (???)
+--4555-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (???)
+--4555-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--4555--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--4555--   .. CRC mismatch (computed 4b63d83e wanted 670599e6)
+--4555--    object doesn't have a symbol table
+--4555-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--4555--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--4555--   .. CRC mismatch (computed a4b37bee wanted 8ad4dc94)
+--4555--    object doesn't have a symbol table
+==4555== WARNING: new redirection conflicts with existing -- ignoring it
+--4555--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x58060901 ???
+--4555--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--4555-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--4555-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--4555-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--4555--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--4555--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--4555--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--4555--   .. CRC is valid
+--4555-- REDIR: 0x4edac70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ed9d40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edaf50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ed9790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ed9d70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edc7c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edade0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edac10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ed9d00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ed9800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edad40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ef80f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ed9ca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ed9870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edafa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ed9840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edb0e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ed9da0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ed97c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ed9c70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ee46c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edaff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edabe0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4ef8eb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4eda050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edaf20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edaef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edc7f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4edb040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4555-- REDIR: 0x4eed330 (libc.so.6:__strrchr_sse2) redirected to 0x4c32790 (__strrchr_sse2)
+--4555-- REDIR: 0x4eed120 (libc.so.6:__strchrnul_sse2) redirected to 0x4c37020 (strchrnul)
+--4555-- REDIR: 0x4eed620 (libc.so.6:__strlen_sse2) redirected to 0x4c32d30 (__strlen_sse2)
+DEBUG: tests/unit_tests.c:34: ----- RUNNING: ./tests/unit_tests
+--4555-- REDIR: 0x4ed3070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--4555-- REDIR: 0x4ef7440 (libc.so.6:__mempcpy_sse2_unaligned) redirected to 0x4c37130 (mempcpy)
 DEBUG: tests/unit_tests.c:17: 
 ----- test_list_create
+--4555-- REDIR: 0x4ed6030 (libc.so.6:calloc) redirected to 0x4c31a70 (calloc)
 DEBUG: tests/unit_tests.c:18: 
 ----- test_list_push_pop
+--4555-- REDIR: 0x4ed3950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
 DEBUG: tests/unit_tests.c:19: 
 ----- test_list_unshift
 DEBUG: tests/unit_tests.c:20: 
@@ -49,5 +469,498 @@ DEBUG: tests/unit_tests.c:23:
 ----- test_list_destroy
 DEBUG: tests/unit_tests.c:28: 
 ----- test_list_algos_bubble_sort
-DEBUG: tests/list_algos_tests.c:33: XXXX 1234
-[ERROR] (tests/list_algos_tests.c:49: errno: None) Words are not sorted after bubble sort.
+--4555-- REDIR: 0x4ee5e70 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x4c33da0 (strcmp)
+DEBUG: tests/unit_tests.c:29: 
+----- test_list_algos_merge_sort
+==4555== 
+==4555== HEAP SUMMARY:
+==4555==     in use at exit: 0 bytes in 0 blocks
+==4555==   total heap usage: 98 allocs, 98 frees, 3,352 bytes allocated
+==4555== 
+==4555== All heap blocks were freed -- no leaks are possible
+==4555== 
+==4555== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4555== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4574== Memcheck, a memory error detector
+==4574== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4574== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==4574== Command: ./tests/unit_tests
+==4574== 
+--4574-- Valgrind options:
+--4574--    -v
+--4574--    --leak-check=full
+--4574-- Contents of /proc/version:
+--4574--   Linux version 4.15.0-36-generic (buildd@lgw01-amd64-031) (gcc version 7.3.0 (Ubuntu 7.3.0-16ubuntu3)) #39-Ubuntu SMP Mon Sep 24 16:19:09 UTC 2018
+--4574-- 
+--4574-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3
+--4574-- Page sizes: currently 4096, max supported 4096
+--4574-- Valgrind library directory: /usr/lib/valgrind
+--4574-- Reading syms from /home/flo/Code/01_C/01_LearnCtheHardWay/Learn-C-the-hard-way---Exercises/liblcthw/tests/unit_tests
+--4574-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--4574--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--4574--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--4574--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--4574--   .. CRC is valid
+--4574-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--4574--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--4574--   .. CRC mismatch (computed c25f395c wanted 0a9602a8)
+--4574--    object doesn't have a symbol table
+--4574--    object doesn't have a dynamic symbol table
+--4574-- Scheduler: using generic scheduler lock implementation.
+--4574-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==4574== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-4574-by-flo-on-???
+==4574== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-4574-by-flo-on-???
+==4574== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-4574-by-flo-on-???
+==4574== 
+==4574== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==4574== don't want to do, unless you know exactly what you're doing,
+==4574== or are doing some strange experiment):
+==4574==   /usr/lib/valgrind/../../bin/vgdb --pid=4574 ...command...
+==4574== 
+==4574== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==4574==   /path/to/gdb ./tests/unit_tests
+==4574== and then give GDB the following command
+==4574==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=4574
+==4574== --pid is optional if only one valgrind process is running
+==4574== 
+--4574-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (???)
+--4574-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (???)
+--4574-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--4574--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--4574--   .. CRC mismatch (computed 4b63d83e wanted 670599e6)
+--4574--    object doesn't have a symbol table
+--4574-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--4574--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--4574--   .. CRC mismatch (computed a4b37bee wanted 8ad4dc94)
+--4574--    object doesn't have a symbol table
+==4574== WARNING: new redirection conflicts with existing -- ignoring it
+--4574--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x58060901 ???
+--4574--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--4574-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--4574-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--4574-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--4574--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--4574--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--4574--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--4574--   .. CRC is valid
+--4574-- REDIR: 0x4edac70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ed9d40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edaf50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ed9790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ed9d70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edc7c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edade0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edac10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ed9d00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ed9800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edad40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ef80f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ed9ca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ed9870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edafa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ed9840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edb0e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ed9da0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ed97c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ed9c70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ee46c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edaff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edabe0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4ef8eb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4eda050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edaf20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edaef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edc7f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4edb040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4574-- REDIR: 0x4eed330 (libc.so.6:__strrchr_sse2) redirected to 0x4c32790 (__strrchr_sse2)
+--4574-- REDIR: 0x4eed120 (libc.so.6:__strchrnul_sse2) redirected to 0x4c37020 (strchrnul)
+--4574-- REDIR: 0x4eed620 (libc.so.6:__strlen_sse2) redirected to 0x4c32d30 (__strlen_sse2)
+DEBUG: tests/unit_tests.c:34: ----- RUNNING: ./tests/unit_tests
+--4574-- REDIR: 0x4ed3070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--4574-- REDIR: 0x4ef7440 (libc.so.6:__mempcpy_sse2_unaligned) redirected to 0x4c37130 (mempcpy)
+DEBUG: tests/unit_tests.c:17: 
+----- test_list_create
+--4574-- REDIR: 0x4ed6030 (libc.so.6:calloc) redirected to 0x4c31a70 (calloc)
+DEBUG: tests/unit_tests.c:18: 
+----- test_list_push_pop
+--4574-- REDIR: 0x4ed3950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+DEBUG: tests/unit_tests.c:19: 
+----- test_list_unshift
+DEBUG: tests/unit_tests.c:20: 
+----- test_list_remove
+DEBUG: tests/unit_tests.c:21: 
+----- test_list_shift
+DEBUG: tests/unit_tests.c:22: 
+----- test_list_join
+DEBUG: tests/unit_tests.c:23: 
+----- test_list_destroy
+DEBUG: tests/unit_tests.c:28: 
+----- test_list_algos_bubble_sort
+--4574-- REDIR: 0x4ee5e70 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x4c33da0 (strcmp)
+DEBUG: tests/unit_tests.c:29: 
+----- test_list_algos_merge_sort
+==4574== Invalid read of size 8
+==4574==    at 0x10A6F9: List_destroy (list.c:20)
+==4574==    by 0x109834: test_list_algos_merge_sort (list_algos_tests.c:99)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574==  Address 0x522f8e8 is 8 bytes inside a block of size 24 free'd
+==4574==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x10982C: test_list_algos_merge_sort (list_algos_tests.c:98)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574==  Block was alloc'd at
+==4574==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x109759: test_list_algos_merge_sort (list_algos_tests.c:92)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574== 
+==4574== Invalid read of size 8
+==4574==    at 0x10A71E: List_destroy (list.c:25)
+==4574==    by 0x109834: test_list_algos_merge_sort (list_algos_tests.c:99)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574==  Address 0x522f8f0 is 16 bytes inside a block of size 24 free'd
+==4574==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x10982C: test_list_algos_merge_sort (list_algos_tests.c:98)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574==  Block was alloc'd at
+==4574==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x109759: test_list_algos_merge_sort (list_algos_tests.c:92)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574== 
+==4574== Invalid free() / delete / delete[] / realloc()
+==4574==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x109834: test_list_algos_merge_sort (list_algos_tests.c:99)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574==  Address 0x522f8e0 is 0 bytes inside a block of size 24 free'd
+==4574==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x10982C: test_list_algos_merge_sort (list_algos_tests.c:98)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574==  Block was alloc'd at
+==4574==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x109759: test_list_algos_merge_sort (list_algos_tests.c:92)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574== 
+==4574== 
+==4574== HEAP SUMMARY:
+==4574==     in use at exit: 0 bytes in 0 blocks
+==4574==   total heap usage: 99 allocs, 100 frees, 3,376 bytes allocated
+==4574== 
+==4574== All heap blocks were freed -- no leaks are possible
+==4574== 
+==4574== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+==4574== 
+==4574== 1 errors in context 1 of 3:
+==4574== Invalid free() / delete / delete[] / realloc()
+==4574==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x109834: test_list_algos_merge_sort (list_algos_tests.c:99)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574==  Address 0x522f8e0 is 0 bytes inside a block of size 24 free'd
+==4574==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x10982C: test_list_algos_merge_sort (list_algos_tests.c:98)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574==  Block was alloc'd at
+==4574==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x109759: test_list_algos_merge_sort (list_algos_tests.c:92)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574== 
+==4574== 
+==4574== 1 errors in context 2 of 3:
+==4574== Invalid read of size 8
+==4574==    at 0x10A71E: List_destroy (list.c:25)
+==4574==    by 0x109834: test_list_algos_merge_sort (list_algos_tests.c:99)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574==  Address 0x522f8f0 is 16 bytes inside a block of size 24 free'd
+==4574==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x10982C: test_list_algos_merge_sort (list_algos_tests.c:98)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574==  Block was alloc'd at
+==4574==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x109759: test_list_algos_merge_sort (list_algos_tests.c:92)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574== 
+==4574== 
+==4574== 1 errors in context 3 of 3:
+==4574== Invalid read of size 8
+==4574==    at 0x10A6F9: List_destroy (list.c:20)
+==4574==    by 0x109834: test_list_algos_merge_sort (list_algos_tests.c:99)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574==  Address 0x522f8e8 is 8 bytes inside a block of size 24 free'd
+==4574==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x10982C: test_list_algos_merge_sort (list_algos_tests.c:98)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574==  Block was alloc'd at
+==4574==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4574==    by 0x109759: test_list_algos_merge_sort (list_algos_tests.c:92)
+==4574==    by 0x109A93: all_tests (unit_tests.c:29)
+==4574==    by 0x1090CA: main (unit_tests.c:34)
+==4574== 
+==4574== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+==4592== Memcheck, a memory error detector
+==4592== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4592== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==4592== Command: ./tests/unit_tests
+==4592== 
+--4592-- Valgrind options:
+--4592--    -v
+--4592--    --leak-check=full
+--4592-- Contents of /proc/version:
+--4592--   Linux version 4.15.0-36-generic (buildd@lgw01-amd64-031) (gcc version 7.3.0 (Ubuntu 7.3.0-16ubuntu3)) #39-Ubuntu SMP Mon Sep 24 16:19:09 UTC 2018
+--4592-- 
+--4592-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3
+--4592-- Page sizes: currently 4096, max supported 4096
+--4592-- Valgrind library directory: /usr/lib/valgrind
+--4592-- Reading syms from /home/flo/Code/01_C/01_LearnCtheHardWay/Learn-C-the-hard-way---Exercises/liblcthw/tests/unit_tests
+--4592-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--4592--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--4592--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--4592--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--4592--   .. CRC is valid
+--4592-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--4592--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--4592--   .. CRC mismatch (computed c25f395c wanted 0a9602a8)
+--4592--    object doesn't have a symbol table
+--4592--    object doesn't have a dynamic symbol table
+--4592-- Scheduler: using generic scheduler lock implementation.
+--4592-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==4592== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-4592-by-flo-on-???
+==4592== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-4592-by-flo-on-???
+==4592== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-4592-by-flo-on-???
+==4592== 
+==4592== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==4592== don't want to do, unless you know exactly what you're doing,
+==4592== or are doing some strange experiment):
+==4592==   /usr/lib/valgrind/../../bin/vgdb --pid=4592 ...command...
+==4592== 
+==4592== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==4592==   /path/to/gdb ./tests/unit_tests
+==4592== and then give GDB the following command
+==4592==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=4592
+==4592== --pid is optional if only one valgrind process is running
+==4592== 
+--4592-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (???)
+--4592-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (???)
+--4592-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--4592--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--4592--   .. CRC mismatch (computed 4b63d83e wanted 670599e6)
+--4592--    object doesn't have a symbol table
+--4592-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--4592--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--4592--   .. CRC mismatch (computed a4b37bee wanted 8ad4dc94)
+--4592--    object doesn't have a symbol table
+==4592== WARNING: new redirection conflicts with existing -- ignoring it
+--4592--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x58060901 ???
+--4592--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--4592-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--4592-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--4592-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--4592--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--4592--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--4592--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--4592--   .. CRC is valid
+--4592-- REDIR: 0x4edac70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ed9d40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edaf50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ed9790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ed9d70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edc7c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edade0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edac10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ed9d00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ed9800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edad40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ef80f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ed9ca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ed9870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edafa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ed9840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edb0e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ed9da0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ed97c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ed9c70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ee46c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edaff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edabe0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4ef8eb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4eda050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edaf20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edaef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edc7f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4edb040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4592-- REDIR: 0x4eed330 (libc.so.6:__strrchr_sse2) redirected to 0x4c32790 (__strrchr_sse2)
+--4592-- REDIR: 0x4eed120 (libc.so.6:__strchrnul_sse2) redirected to 0x4c37020 (strchrnul)
+--4592-- REDIR: 0x4eed620 (libc.so.6:__strlen_sse2) redirected to 0x4c32d30 (__strlen_sse2)
+DEBUG: tests/unit_tests.c:34: ----- RUNNING: ./tests/unit_tests
+--4592-- REDIR: 0x4ed3070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--4592-- REDIR: 0x4ef7440 (libc.so.6:__mempcpy_sse2_unaligned) redirected to 0x4c37130 (mempcpy)
+DEBUG: tests/unit_tests.c:17: 
+----- test_list_create
+--4592-- REDIR: 0x4ed6030 (libc.so.6:calloc) redirected to 0x4c31a70 (calloc)
+DEBUG: tests/unit_tests.c:18: 
+----- test_list_push_pop
+--4592-- REDIR: 0x4ed3950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+DEBUG: tests/unit_tests.c:19: 
+----- test_list_unshift
+DEBUG: tests/unit_tests.c:20: 
+----- test_list_remove
+DEBUG: tests/unit_tests.c:21: 
+----- test_list_shift
+DEBUG: tests/unit_tests.c:22: 
+----- test_list_join
+DEBUG: tests/unit_tests.c:23: 
+----- test_list_destroy
+DEBUG: tests/unit_tests.c:28: 
+----- test_list_algos_bubble_sort
+--4592-- REDIR: 0x4ee5e70 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x4c33da0 (strcmp)
+DEBUG: tests/unit_tests.c:29: 
+----- test_list_algos_merge_sort
+==4592== 
+==4592== HEAP SUMMARY:
+==4592==     in use at exit: 0 bytes in 0 blocks
+==4592==   total heap usage: 99 allocs, 99 frees, 3,376 bytes allocated
+==4592== 
+==4592== All heap blocks were freed -- no leaks are possible
+==4592== 
+==4592== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4592== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4646== Memcheck, a memory error detector
+==4646== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4646== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==4646== Command: ./tests/unit_tests
+==4646== 
+--4646-- Valgrind options:
+--4646--    -v
+--4646--    --leak-check=full
+--4646-- Contents of /proc/version:
+--4646--   Linux version 4.15.0-36-generic (buildd@lgw01-amd64-031) (gcc version 7.3.0 (Ubuntu 7.3.0-16ubuntu3)) #39-Ubuntu SMP Mon Sep 24 16:19:09 UTC 2018
+--4646-- 
+--4646-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3
+--4646-- Page sizes: currently 4096, max supported 4096
+--4646-- Valgrind library directory: /usr/lib/valgrind
+--4646-- Reading syms from /home/flo/Code/01_C/01_LearnCtheHardWay/Learn-C-the-hard-way---Exercises/liblcthw/tests/unit_tests
+--4646-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--4646--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--4646--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--4646--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--4646--   .. CRC is valid
+--4646-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--4646--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--4646--   .. CRC mismatch (computed c25f395c wanted 0a9602a8)
+--4646--    object doesn't have a symbol table
+--4646--    object doesn't have a dynamic symbol table
+--4646-- Scheduler: using generic scheduler lock implementation.
+--4646-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==4646== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-4646-by-flo-on-???
+==4646== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-4646-by-flo-on-???
+==4646== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-4646-by-flo-on-???
+==4646== 
+==4646== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==4646== don't want to do, unless you know exactly what you're doing,
+==4646== or are doing some strange experiment):
+==4646==   /usr/lib/valgrind/../../bin/vgdb --pid=4646 ...command...
+==4646== 
+==4646== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==4646==   /path/to/gdb ./tests/unit_tests
+==4646== and then give GDB the following command
+==4646==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=4646
+==4646== --pid is optional if only one valgrind process is running
+==4646== 
+--4646-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x58060901 (???)
+--4646-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x5806091b (???)
+--4646-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--4646--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--4646--   .. CRC mismatch (computed 4b63d83e wanted 670599e6)
+--4646--    object doesn't have a symbol table
+--4646-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--4646--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--4646--   .. CRC mismatch (computed a4b37bee wanted 8ad4dc94)
+--4646--    object doesn't have a symbol table
+==4646== WARNING: new redirection conflicts with existing -- ignoring it
+--4646--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x58060901 ???
+--4646--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--4646-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--4646-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--4646-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--4646--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--4646--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--4646--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--4646--   .. CRC is valid
+--4646-- REDIR: 0x4edac70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ed9d40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edaf50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ed9790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ed9d70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edc7c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edade0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edac10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ed9d00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ed9800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edad40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ef80f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ed9ca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ed9870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edafa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ed9840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edb0e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ed9da0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ed97c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ed9c70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ee46c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edaff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edabe0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4ef8eb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4eda050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edaf20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edaef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edc7f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4edb040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--4646-- REDIR: 0x4eed330 (libc.so.6:__strrchr_sse2) redirected to 0x4c32790 (__strrchr_sse2)
+--4646-- REDIR: 0x4eed120 (libc.so.6:__strchrnul_sse2) redirected to 0x4c37020 (strchrnul)
+--4646-- REDIR: 0x4eed620 (libc.so.6:__strlen_sse2) redirected to 0x4c32d30 (__strlen_sse2)
+DEBUG: tests/unit_tests.c:34: ----- RUNNING: ./tests/unit_tests
+--4646-- REDIR: 0x4ed3070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--4646-- REDIR: 0x4ef7440 (libc.so.6:__mempcpy_sse2_unaligned) redirected to 0x4c37130 (mempcpy)
+DEBUG: tests/unit_tests.c:17: 
+----- test_list_create
+--4646-- REDIR: 0x4ed6030 (libc.so.6:calloc) redirected to 0x4c31a70 (calloc)
+DEBUG: tests/unit_tests.c:18: 
+----- test_list_push_pop
+--4646-- REDIR: 0x4ed3950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+DEBUG: tests/unit_tests.c:19: 
+----- test_list_unshift
+DEBUG: tests/unit_tests.c:20: 
+----- test_list_remove
+DEBUG: tests/unit_tests.c:21: 
+----- test_list_shift
+DEBUG: tests/unit_tests.c:22: 
+----- test_list_join
+DEBUG: tests/unit_tests.c:23: 
+----- test_list_destroy
+DEBUG: tests/unit_tests.c:28: 
+----- test_list_algos_bubble_sort
+--4646-- REDIR: 0x4ee5e70 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x4c33da0 (strcmp)
+DEBUG: tests/unit_tests.c:29: 
+----- test_list_algos_merge_sort
+==4646== 
+==4646== HEAP SUMMARY:
+==4646==     in use at exit: 0 bytes in 0 blocks
+==4646==   total heap usage: 99 allocs, 99 frees, 3,376 bytes allocated
+==4646== 
+==4646== All heap blocks were freed -- no leaks are possible
+==4646== 
+==4646== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4646== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

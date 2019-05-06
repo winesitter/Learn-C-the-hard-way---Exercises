@@ -26,6 +26,7 @@ char *all_tests()
   * Unit tests for list algorithms
   *************************************************************/
   mu_run_test(test_list_algos_bubble_sort);
+  mu_run_test(test_list_algos_merge_sort);
   
 
   return NULL;
