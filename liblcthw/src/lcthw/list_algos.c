@@ -2,6 +2,21 @@
 #include <lcthw/dbg.h>
 
 
+
+/***************************************************************
+* Function for swapping the values of two nodes in a 
+* list structure
+***************************************************************/
+static inline void ListNode_swap(ListNode *a, ListNode *b);
+
+/***************************************************************
+* Function for merging two lists 
+***************************************************************/
+static inline List *List_merge(List *left, List *right, 
+                               List_compare cmp);
+
+
+
 /***************************************************************
 * Function for swapping the values of two nodes in a 
 * list structure
