@@ -82,3 +82,42 @@ char *test_darray_remove()
   return NULL;
 
 }
+
+char *test_darray_expand_contract()
+{
+  int old_max = array->max;
+  DArray_expand(array);
+  mu_assert((unsigned int)array->max == old_max + array->expand_rate, 
+      "Wrong size after expand.");
+
+  DArray_contract(array);
+  mu_assert((unsigned int)array->max == array->expand_rate + 1, 
+      "Should stay at expand rate at least.");
+
+  DArray_contract(array);
+  mu_assert((unsigned int)array->max == array->expand_rate + 1, 
+      "Should stay at expand rate at least.");
+  
+  return NULL;
+}
+
+char *test_darray_push_pop()
+{
+  int i = 0;
+  for (i = 0; i < 1000; i++) {
+    int *val = DArray_new(array);
+    *val = i * 333;
+    DArray_push(array, val);
+  }
+
+  mu_assert(array->max == 1201, "Wrong max size.");
+
+  for (i = 999; i >= 0; i--) {
+    int *val = DArray_pop(array);
+    mu_assert(val != NULL, "Shouldn't get a NULL.");
+    mu_assert(*val == i * 333, "Wrong value.");
+    DArray_free(val);
+  }
+
+  return NULL;
+}

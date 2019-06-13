@@ -5,6 +5,21 @@
 #include <assert.h>
 #include <lcthw/dbg.h>
 
+
+/***************************************************************
+* DEFINES
+***************************************************************/
+#define DEFAULT_EXPAND_RATE 300
+
+#define DArray_last(A) ((A)->contents[(A)->end - 1])
+#define DArray_first(A) ((A)->contents[0])
+#define DArray_end(A) ((A)->end)
+#define DArray_count(A) DArray_end(A)
+#define DArray_max(A) ((A)->max)
+#define DArray_free(E) free((E))
+
+
+
 /***************************************************************
 * DArray Structure
 ***************************************************************/
@@ -36,21 +51,28 @@ void DArray_clear(DArray *array);
 ***************************************************************/
 void DArray_clear_destroy(DArray *array);
 
+/***************************************************************
+* Function to expand a DArray memory for its expand_rate
+***************************************************************/
 int DArray_expand(DArray *array);
 
+/***************************************************************
+* Function to contract a DArray memory for its expand_rate
+***************************************************************/
 int DArray_contract(DArray *array);
 
+/***************************************************************
+* Function pushes new value to the end of content of DArray
+***************************************************************/
 int DArray_push(DArray *array, void *el);
 
+/***************************************************************
+* Function pops value from the end of content of DArray
+***************************************************************/
 void *DArray_pop(DArray *array);
 
-#define DArray_last(A) ((A)->contents[(A)->end - 1])
-#define DArray_first(A) ((A)->contents[0])
-#define DArray_end(A) ((A)->end)
-#define DArray_count(A) DArray_end(A)
-#define DArray_max(A) ((A)->max)
 
-#define DEFAULT_EXPAND_RATE 300
+
 
 /***************************************************************
 * Set an element <el> into the DArray at position <i>
@@ -79,7 +101,6 @@ error:
 static inline void *DArray_remove(DArray *array, int i)
 {
   void *el = array->contents[i];
-
   array->contents[i] = NULL;
 
   return el;
@@ -99,7 +120,27 @@ error:
   return NULL;
 }
 
-#define DArray_free(E) free((E))
+/***************************************************************
+* Resizes the contents of DArray to new size
+***************************************************************/
+static inline int DArray_resize(DArray *array, size_t newsize)
+{
+  array->max = newsize;
+  check(array->max > 0, "The newsize must be > 0.");
+
+  void *contents = realloc(array->contents,
+      array->max * sizeof(void *));
+  // Check contents and assume realloc doesn't harm the 
+  // original data
+
+  check_mem(contents);
+
+  array->contents = contents;
+
+  return 0;
+error:
+  return -1;
+}
 
 
 #endif /* _Darray_h */
