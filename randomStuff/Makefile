@@ -1,6 +1,6 @@
 CFLAGS=-Wall -g -lm
 
-all: voidFun matrix_inverse
+all: pointerTest voidFun matrix_inverse
 
 clean:
 	rm voidFun

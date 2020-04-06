@@ -1,0 +1,40 @@
+#-----------------------------------------------------------
+# OctFS - Parameter File
+#-----------------------------------------------------------
+
+# Files/IO: ------------------------------------------------
+            Grid filename: Grid/Test/grid.cgns
+      Output files prefix: Results/TestResult
+      Restart-data prefix: (none)
+
+# Time parameters: -----------------------------------------
+                         Timestep: 0.01
+          Maximal timestep number: 1000
+                    Output period: 100
+   Temporal discretization scheme: CN
+ 
+# Discretization parameters: -------------------------------
+    Spatial discretization scheme - momentum: Upwind
+      Spatial discretization scheme - scalar: Central
+ 
+# Solver parameters: ---------------------------------------
+      Solver algorithm for momentum equation: BICGSTAB
+      Solver algorithm for pressure equation: BICGSTAB
+        Solver algorithm for scalar equation: BICGSTAB
+
+      Epsilon for momentum solver: 1.e-4
+      Epsilon for pressure solver: 1.e-4
+        Epsilon for scalar solver: 1.e-4
+
+      Maximum iteration number for momentum solver: 1.e-4
+      Maximum iteration number for pressure solver: 1.e-4
+        Maximum iteration number for scalar solver: 1.e-4
+
+# Reference quantities: ------------------------------------
+       Reference density: 1.0
+      Reference pressure: 1.0
+     Reference viscosity: 1.0
+    Reference coordinate: 1.0 0.0 0.0
+      Reference velocity: 1.0 0.0 0.0
+
+
