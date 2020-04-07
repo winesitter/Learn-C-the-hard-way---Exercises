@@ -13,10 +13,12 @@ set( LCTHW_SRC    ${LCTHW_DIR}/src     )
 
 # Define source files
 set( LCTHW_MAIN
+  ${LCTHW_SRC}/bstrlib.c
   ${LCTHW_SRC}/list.c
   ${LCTHW_SRC}/darray.c
   ${LCTHW_SRC}/list_algos.c
   ${LCTHW_SRC}/darray_algos.c
+  ${LCTHW_SRC}/txtio.c
   )
 
 ##############################################################
@@ -43,10 +45,12 @@ set( TESTEXE_LCTHW lcthw_test        )
 set( TESTDIR_LCTHW ${LCTHW_DIR}/test )
 
 add_executable( ${TESTEXE_LCTHW}
+  ${TESTDIR_LCTHW}/bstrlib_tests.c
   ${TESTDIR_LCTHW}/list_tests.c
   ${TESTDIR_LCTHW}/darray_tests.c
   ${TESTDIR_LCTHW}/list_algos_tests.c
   ${TESTDIR_LCTHW}/darray_algos_tests.c
+  ${TESTDIR_LCTHW}/txtio_tests.c
   ${TESTDIR_LCTHW}/unit_tests.c
 )
 

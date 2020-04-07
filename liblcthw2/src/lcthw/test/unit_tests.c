@@ -5,6 +5,8 @@
 #include "list_algos_tests.h"
 #include "darray_algos_tests.h"
 #include "darray_tests.h"
+#include "bstrlib_tests.h"
+#include "txtio_tests.h"
 
 /************************************************************
 * Run all unit test functions
@@ -15,24 +17,24 @@ char *all_tests()
 
   /**********************************************************
   * Unit tests for list structure
-  **********************************************************/
+  **********************************************************
   mu_run_test(test_list_create);
   mu_run_test(test_list_push_pop);
   mu_run_test(test_list_unshift);
   mu_run_test(test_list_remove);
   mu_run_test(test_list_shift);
   mu_run_test(test_list_join);
-  mu_run_test(test_list_destroy);
+  mu_run_test(test_list_destroy);*/
 
   /**********************************************************
   * Unit tests for list algorithms
-  **********************************************************/
+  **********************************************************
   mu_run_test(test_list_algos_bubble_sort);
-  mu_run_test(test_list_algos_merge_sort);
+  mu_run_test(test_list_algos_merge_sort);*/
 
   /**********************************************************
   * Unit tests for dynamic arrays
-  **********************************************************/
+  **********************************************************
   mu_run_test(test_darray_create);
   mu_run_test(test_darray_new);
   mu_run_test(test_darray_set);
@@ -41,12 +43,26 @@ char *all_tests()
   
   mu_run_test(test_darray_expand_contract);
   mu_run_test(test_darray_push_pop);
-  mu_run_test(test_darray_destroy);
+  mu_run_test(test_darray_destroy);*/
 
   /**********************************************************
   * Unit tests for dynamic array algorithms
+  **********************************************************
+  mu_run_test(test_darray_qsort);*/
+
+  /**********************************************************
+  * Unit tests for better strings library
+  **********************************************************
+  mu_run_test(test_bstring_create_destroy);
+  mu_run_test(test_bstring_concat);
+  mu_run_test(test_bstring_compare);
+  mu_run_test(test_bstring_list);*/
+
+  /**********************************************************
+  * Unit tests for file input / output library
   **********************************************************/
-  mu_run_test(test_darray_qsort);
+  mu_run_test(test_txtio_readfile);
+
 
   return NULL;
 }

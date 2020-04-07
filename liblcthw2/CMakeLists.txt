@@ -15,3 +15,4 @@ include( "${CMAKE_SOURCE_DIR}/share/cmake/directories.cmake" )
 # Define modules
 #-------------------------------------------------------------
 add_subdirectory( ${SRC}/lcthw )
+add_subdirectory( ${SRC}/pread )
