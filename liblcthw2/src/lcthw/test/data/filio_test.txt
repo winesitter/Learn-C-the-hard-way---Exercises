@@ -14,6 +14,8 @@ Read this parameter as string: key
         # An another comment
 
 
+    Integer parameter: 4
+
              And finally read this: 1.2345
 
 
