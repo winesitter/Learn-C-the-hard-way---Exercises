@@ -58,5 +58,23 @@ int Txtio_intParam(struct bstrList *txtlist,
                    const char *fltr,
                    int *value);
 
+/*************************************************************
+* Function searches for a specifier <fltr> in a bstrList.
+* The parameter behind the specifier is then extracted 
+* from the file and stored into <value>.
+* The value is casted to a prescribed type
+* type = 0: integer
+* type = 1: double
+* type = 2: string
+*
+* Returns 0 if specifier was not found in the file.
+* Otherwise, it returns the number of times, the 
+* specifier was found.
+* Returns -1 on errors.
+*************************************************************/
+int Txtio_extractParam(struct bstrList *txtlist,
+                       const char *fltr, int type,
+                       void *value);
+
 
 #endif

@@ -46,19 +46,39 @@ char *test_txtio_readfile()
         "<Txtio_getLinesWith> failed.");
 
   /*----------------------------------------------------------
-  | Return integer parameter
+  | Return integer / float / bstring parameter
   ----------------------------------------------------------*/
-  int param;
+  int int_param;
+  double dbl_param;
+  bstring bstr_param;
 
   int check = Txtio_intParam(file->txtlist, 
-      "No existing parameter:", &param);
+      "No existing parameter:", &int_param);
   mu_assert( check == 0, "<Txtio_intParam> failed.");
 
   check = Txtio_intParam(file->txtlist, 
-       "Integer parameter:", &param);
+       "Integer parameter:", &int_param);
   mu_assert( check == 1, "<Txtio_intParam> failed.");
-  mu_assert( param == 4, "<Txtio_intParam> failed.");
+  mu_assert( int_param == 4, "<Txtio_intParam> failed.");
 
+  check = Txtio_extractParam(file->txtlist, 
+       "Integer parameter:", 0, &int_param);
+  mu_assert( check == 1, "<Txtio_extractParam> failed.");
+  mu_assert( int_param == 4, "<Txtio_extractParam> failed.");
+
+  check = Txtio_extractParam(file->txtlist, 
+       "Read this:", 1, &dbl_param);
+  mu_assert( check == 1, "<Txtio_extractParam> failed.");
+  mu_assert( dbl_param == 1.2345, 
+      "<Txtio_extractParam> failed.");
+
+  check = Txtio_extractParam(file->txtlist, 
+       "Read this parameter as string:", 2, &bstr_param);
+  mu_assert( check == 1, "<Txtio_extractParam> failed.");
+  mu_assert( strcmp( " key", bstr_param->data) == 0,
+       "<Txtio_extractParam> failed.");
+
+  bdestroy(bstr_param);
   Txtio_destroy( file );
   bdestroy( bcmp_1 );
   bdestroy( bcmp_2 );

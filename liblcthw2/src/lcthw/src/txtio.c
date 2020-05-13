@@ -287,3 +287,86 @@ error:
   bstrListDestroy( blstextr );
   return -1;
 }
+
+/*************************************************************
+* Function searches for a specifier <fltr> in a bstrList.
+* The parameter behind the specifier is then extracted 
+* from the file and stored into <value>.
+* The value is casted to a prescribed type
+* type = 0: integer
+* type = 1: double
+* type = 2: string
+*
+* Returns 0 if specifier was not found in the file.
+* Otherwise, it returns the number of times, the 
+* specifier was found.
+* Returns -1 on errors.
+*************************************************************/
+int Txtio_extractParam(struct bstrList *txtlist,
+                       const char *fltr, int type,
+                       void *value)
+{
+  int i;
+  int nfound = 0;
+  bstring line, valstr;
+  struct bstrList *fltTxt = NULL;
+  struct bstrList *blstextr = NULL;
+  bstring bfltr, bextr;
+
+  /*----------------------------------------------------------
+  | Get all lines, containing the specifier
+  ----------------------------------------------------------*/
+  fltTxt = Txtio_getLinesWith(txtlist, fltr);
+  nfound = fltTxt->qty;
+
+  /*----------------------------------------------------------
+  | Return if specifier is not found
+  ----------------------------------------------------------*/
+  if (fltTxt->qty < 1)
+  {
+    bstrListDestroy(fltTxt);
+    return 0;
+  }
+
+  /*----------------------------------------------------------
+  | Take last string, in which specifier was found
+  ----------------------------------------------------------*/
+  line  = fltTxt->entry[fltTxt->qty - 1];
+  bfltr = bfromcstr( fltr ); 
+  
+  int off = binstr(line, 0, bfltr); 
+  int len = bfltr->slen;
+
+  bextr = bmidstr( line, off+len, line->slen );
+
+  /*----------------------------------------------------------
+  | Remove leading whitespaces and copy first value
+  ----------------------------------------------------------*/
+  valstr = bextr;
+
+  if (type == 0)
+    *(int*)value = atoi(valstr->data);
+  else if (type == 1)
+    *(double*)value = atof(valstr->data);
+  else if (type == 2)
+    *(bstring*)value = bfromcstr( valstr->data );
+  else
+    log_err("Wrong type definition.");
+
+  /*----------------------------------------------------------
+  | Cleanup
+  ----------------------------------------------------------*/
+  bdestroy( bextr );
+  bdestroy( bfltr );
+  bstrListDestroy( fltTxt );
+  bstrListDestroy( blstextr );
+
+  return nfound;
+
+error:
+  bdestroy( bextr );
+  bdestroy( bfltr );
+  bstrListDestroy( fltTxt );
+  bstrListDestroy( blstextr );
+  return -1;
+}
