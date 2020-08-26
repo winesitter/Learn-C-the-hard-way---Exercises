@@ -51,18 +51,18 @@ static inline unsigned hash(char *s)
 
 
 /***********************************************************
-* Function: HTab_createDict()
+* Function: HTab_create()
 *-----------------------------------------------------------
 * Creates a new dictionary
 ***********************************************************/
-HTab *HTab_createDict(void);
+HTab *HTab_create(void);
 
 /***********************************************************
-* Function: HTab_freeDict()
+* Function: HTab_destroy()
 *-----------------------------------------------------------
 * Frees the memory of a given dictionary
 ***********************************************************/
-void HTab_freeDict(HTab *htab);
+void HTab_destroy(HTab *htab);
 
 /***********************************************************
 * Function: HTab_get()

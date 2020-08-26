@@ -13,11 +13,11 @@
 #include "HTab.h"
 
 /***********************************************************
-* Function: HTab_createDict()
+* Function: HTab_create()
 *-----------------------------------------------------------
 * Creates a new dictionary
 ***********************************************************/
-HTab *HTab_createDict(void)
+HTab *HTab_create(void)
 {
   int i;
   HTab *htab;
@@ -29,14 +29,14 @@ HTab *HTab_createDict(void)
 
   return htab;
 
-} /* HTab_createDict() */
+} /* HTab_create() */
 
 /***********************************************************
-* Function: HTab_freeDict()
+* Function: HTab_destroy()
 *-----------------------------------------------------------
 * Frees the memory of a given dictionary
 ***********************************************************/
-void HTab_freeDict(HTab *htab)
+void HTab_destroy(HTab *htab)
 {
   int i;
 
@@ -49,7 +49,7 @@ void HTab_freeDict(HTab *htab)
   
   free(htab);
 
-} /* HTab_freeDict() */
+} /* HTab_destroy() */
 
 /***********************************************************
 * Function: HTab_get()
@@ -160,7 +160,7 @@ int main(int argc, char *argv[])
   (void) argv;
 
   HTabEntry *e;
-  HTab *htab = HTab_createDict();
+  HTab *htab = HTab_create();
 
   char *key_1  = "Test_1";
   double val_1 = 1.2345;
@@ -191,7 +191,7 @@ int main(int argc, char *argv[])
   else
     printf("Succeeded.\n");
 
-  HTab_freeDict(htab);
+  HTab_destroy(htab);
 
   return 0;
 }
